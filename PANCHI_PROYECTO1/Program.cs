@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using PANCHI_PROYECTO1.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<PANCHI_PROYECTO1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PANCHI_PROYECTO1Context") ?? throw new InvalidOperationException("Connection string 'PANCHI_PROYECTO1Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
