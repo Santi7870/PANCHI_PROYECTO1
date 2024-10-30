@@ -10,12 +10,18 @@ namespace PANCHI_PROYECTO1.Models
         public int Id { get; set; }
         [Required(ErrorMessage ="El campo de nombre es obligatorio")]
 
+
         [MaxLength(100, ErrorMessage = "No puede exeder de 100 caracteres")]
         public string Nombre { get; set; }
         [Range(0.2, 500)]
      
 
         public double Peso { get; set; }
+
+        [Range(0,55)]
+
+        public int Edad { get; set; }
+
 
         [Required]
         public Boolean Extranjero { get; set; }

@@ -22,7 +22,7 @@ namespace PANCHI_PROYECTO1.Models
         public int Anio { get; set; }
 
         [Range(1000,10000)]
-        public int Precio { get; set; }
+        public double Precio { get; set; }
 
         [ForeignKey("SPanchi")]
         public int SPanchiId { get; set; }
