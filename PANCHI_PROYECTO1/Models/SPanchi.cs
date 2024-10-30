@@ -15,7 +15,7 @@ namespace PANCHI_PROYECTO1.Models
         [Range(0.2, 500)]
      
 
-        public float Peso { get; set; }
+        public double Peso { get; set; }
 
         [Required]
         public Boolean Extranjero { get; set; }
@@ -23,9 +23,9 @@ namespace PANCHI_PROYECTO1.Models
         [DataType(DataType.Date)]
         [Display(Name="Fecha de registro")]
 
-        public  string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
-        public Celular celular { get; set; }
+        public Celular? Celular { get; set; }
 
 
 
