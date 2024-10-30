@@ -54,7 +54,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Peso,Extranjero,Fecha")] SPanchi sPanchi)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Peso,Edad,Extranjero,Fecha")] SPanchi sPanchi)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Peso,Extranjero,Fecha")] SPanchi sPanchi)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Peso,Edad,Extranjero,Fecha")] SPanchi sPanchi)
         {
             if (id != sPanchi.Id)
             {

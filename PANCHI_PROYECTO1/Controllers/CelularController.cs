@@ -22,7 +22,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // GET: Celulars
         public async Task<IActionResult> Index()
         {
-            var pANCHI_PROYECTO1Context = _context.Celular.Include(c => c.sPanchi);
+            var pANCHI_PROYECTO1Context = _context.Celular.Include(c => c.SPanchi);
             return View(await pANCHI_PROYECTO1Context.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace PANCHI_PROYECTO1.Controllers
             }
 
             var celular = await _context.Celular
-                .Include(c => c.sPanchi)
+                .Include(c => c.SPanchi)
                 .FirstOrDefaultAsync(m => m.IdCelular == id);
             if (celular == null)
             {
@@ -48,7 +48,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // GET: Celulars/Create
         public IActionResult Create()
         {
-            ViewData["SPanchiId"] = new SelectList(_context.SPanchi, "Id", "Nombre");
+            ViewData["IdPropietario"] = new SelectList(_context.SPanchi, "Id", "Nombre");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCelular,Modelo,Anio,Precio,SPanchiId")] Celular celular)
+        public async Task<IActionResult> Create([Bind("IdCelular,Modelo,Anio,Precio,IdPropietario")] Celular celular)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace PANCHI_PROYECTO1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SPanchiId"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.SPanchiId);
+            ViewData["IdPropietario"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.IdPropietario);
             return View(celular);
         }
 
@@ -82,7 +82,7 @@ namespace PANCHI_PROYECTO1.Controllers
             {
                 return NotFound();
             }
-            ViewData["SPanchiId"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.SPanchiId);
+            ViewData["IdPropietario"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.IdPropietario);
             return View(celular);
         }
 
@@ -91,7 +91,7 @@ namespace PANCHI_PROYECTO1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCelular,Modelo,Anio,Precio,SPanchiId")] Celular celular)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCelular,Modelo,Anio,Precio,IdPropietario")] Celular celular)
         {
             if (id != celular.IdCelular)
             {
@@ -118,7 +118,7 @@ namespace PANCHI_PROYECTO1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SPanchiId"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.SPanchiId);
+            ViewData["IdPropietario"] = new SelectList(_context.SPanchi, "Id", "Nombre", celular.IdPropietario);
             return View(celular);
         }
 
@@ -131,7 +131,7 @@ namespace PANCHI_PROYECTO1.Controllers
             }
 
             var celular = await _context.Celular
-                .Include(c => c.sPanchi)
+                .Include(c => c.SPanchi)
                 .FirstOrDefaultAsync(m => m.IdCelular == id);
             if (celular == null)
             {

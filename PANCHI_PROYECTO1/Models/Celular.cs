@@ -25,9 +25,9 @@ namespace PANCHI_PROYECTO1.Models
         public double Precio { get; set; }
 
         [ForeignKey("SPanchi")]
-        public int SPanchiId { get; set; }
+        public int IdPropietario { get; set; }
 
-        public SPanchi sPanchi { get; set; }
+        public SPanchi SPanchi { get; set; }
 
 
 
