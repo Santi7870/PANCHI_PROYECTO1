@@ -21,13 +21,13 @@ namespace PANCHI_PROYECTO1.Models
         [Range(2000,2025)]
         public int Anio { get; set; }
 
-        [Range(1000,10000)]
+        [Range(100,10000)]
         public double Precio { get; set; }
 
         [ForeignKey("SPanchi")]
         public int IdPropietario { get; set; }
 
-        public SPanchi SPanchi { get; set; }
+        public SPanchi? SPanchi { get; set; }
 
 
 

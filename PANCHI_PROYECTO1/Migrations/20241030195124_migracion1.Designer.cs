@@ -12,7 +12,7 @@ using PANCHI_PROYECTO1.Data;
 namespace PANCHI_PROYECTO1.Migrations
 {
     [DbContext(typeof(PANCHI_PROYECTO1Context))]
-    [Migration("20241030194443_migracion1")]
+    [Migration("20241030195124_migracion1")]
     partial class migracion1
     {
         /// <inheritdoc />
